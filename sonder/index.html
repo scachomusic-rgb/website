@@ -58,6 +58,16 @@
         .text-toggle:hover {
             color: #4d7cff;
         }
+
+        .credits-content {
+            opacity: 0;
+            transition: opacity 1.5s ease:
+        }
+
+        details[open] .credits-content {
+            opacity: 1;
+        }
+        
     </style>
 </head>
 
@@ -103,7 +113,7 @@
                 credits
             </summary>
 
-            <div style="font-size: 13px; font-style: italic; margin-top: 20px;">
+            <div class="credits-content" style="font-size: 13px; font-style: italic; margin-top: 20px;">
 
                 <p>written by aron miego</p>
           
