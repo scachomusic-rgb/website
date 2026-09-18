@@ -41,13 +41,27 @@
             margin-top: 0;
         }
         
-        .animated-link {
-            color: white;
-            transition: color 1s ease;
+        .animated-link { 
+            color: white; 
+            text-decoration: none; 
+            transition: color 1.2s ease; 
         }
-
-        .animated-link:hover {
-            color: #4d7cff;
+        .animated-link:hover { 
+            color: #8fa3ff; 
+            animation: linkShimmer 4s ease-in-out 1.2s infinite alternate; 
+        }
+        
+        @keyframes linkShimmer { 
+            0% { 
+                color: #8fa3ff; 
+            }
+            50% {
+                color: #d9deff;
+            }
+            
+            100% {
+                color: #526fff;
+            }
         }
 
         .text-toggle {
@@ -84,8 +98,8 @@
        <p style="text-align: center;">
             <img src="https://i.scdn.co/image/ab67616d0000e1a370b9269c16c4bbebf5fc1e90"
                  alt="sonder-artwork"
-                 width="300"
-                 height="300">
+                 width="700"
+                 height="700">
         </p>
 
       <p style="text-align: center;">&nbsp;</p>
