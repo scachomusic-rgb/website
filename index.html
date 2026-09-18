@@ -44,25 +44,23 @@
         .animated-link { 
             color: white; 
             text-decoration: none; 
+            transition: color 1.2s ease; 
         }
         .animated-link:hover { 
-            background: linear-gradient( 90deg, #ffffff, #aebdff, #5c78ff, #aebdff, #ffffff ); 
-            background-size: 300% 100%; 
-            background-clip: text; 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-            animation: linkShimmer 3s ease-in-out infinite; 
+            color: #8fa3ff; 
+            animation: linkShimmer 4s ease-in-out 1.2s infinite alternate; 
         }
         
         @keyframes linkShimmer { 
             0% { 
-                background-position: 100% 50%; 
+                color: #8fa3ff; 
             }
             50% {
-                background-position: 0% 50%;
+                color: #d9deff;
             }
+            
             100% {
-                background-position: 100% 50%;
+                color: #526fff;
             }
         }
     </style>
