@@ -41,13 +41,34 @@
             margin-top: 0;
         }
 
-        .animated-link {
-            color: white;
-            transition: color 1s ease;
+        .animated-link { 
+            color: white; 
+            text-decoration: none; 
         }
-
-        .animated-link:hover {
-            color: #4d7cff;
+        
+        .animated-link:hover { 
+            animation: linkGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes linkGlow { 
+            0% {
+                color: #ffffff; 
+            }
+            25% {
+                color: #d5dcff;
+            }
+            
+            50% {
+                color: #7f94ff;
+            }
+            
+            75% {
+                color: #c5ceff;
+            }
+            
+            100% {
+                color: #ffffff;
+            }
         }
     </style>
 </head>
