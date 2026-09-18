@@ -45,29 +45,24 @@
             color: white; 
             text-decoration: none; 
         }
-        
         .animated-link:hover { 
-            animation: linkGlow 1s ease-in-out infinite alternate;
+            background: linear-gradient( 90deg, #ffffff, #aebdff, #5c78ff, #aebdff, #ffffff ); 
+            background-size: 300% 100%; 
+            background-clip: text; 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            animation: linkShimmer 3s ease-in-out infinite; 
         }
         
-        @keyframes linkGlow { 
-            0% {
-                color: #ffffff; 
+        @keyframes linkShimmer { 
+            0% { 
+                background-position: 100% 50%; 
             }
-            25% {
-                color: #d5dcff;
-            }
-            
             50% {
-                color: #7f94ff;
+                background-position: 0% 50%;
             }
-            
-            75% {
-                color: #c5ceff;
-            }
-            
             100% {
-                color: #ffffff;
+                background-position: 100% 50%;
             }
         }
     </style>
