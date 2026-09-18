@@ -49,8 +49,39 @@
         .animated-link:hover {
             color: #4d7cff;
         }
+
+        .scan {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+
+        .scan.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
     </style>
 </head>
+
+<script>
+    const scans = document.querySelectorAll('.scan');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    scans.forEach(scan => {
+        observer.observe(scan);
+    });
+</script>
 
 <body>
 
@@ -58,35 +89,35 @@
 
     <section class="cd-promo-wrapped">
                 <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 30px;">
-                    <img src="case_wrapped_front.jpg" style="width: 600px; height: auto;">
-                    <img src="case_wrapped_back.jpg" style="width: 600px; height: auto;">
+                    <img class="scan" src="case_wrapped_front.jpg" style="width: 600px; height: auto;">
+                    <img class="scan" src="case_wrapped_back.jpg" style="width: 600px; height: auto;">
                 </div>
             </section>
 
     <section class="cd-promo-case">
                 <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 30px;">
-                    <img src="case_front.jpg" style="width: 600px; height: auto;">
-                    <img src="case_out.jpg" style="width: 600px; height: auto;">
+                    <img class="scan" src="case_front.jpg" style="width: 600px; height: auto;">
+                    <img class="scan" src="case_out.jpg" style="width: 600px; height: auto;">
                 </div>
             </section>
 
     <section class="cd-promo-card">
                 <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 30px;">
-                    <img src="card_in.jpg" style="width: 600px; height: auto;">
-                    <img src="card_out.jpg" style="width: 600px; height: auto;">
+                    <img class="scan" src="card_in.jpg" style="width: 600px; height: auto;">
+                    <img class="scan" src="card_out.jpg" style="width: 600px; height: auto;">
                 </div>
             </section>
     
     <section class="cd-promo-disc">
                     <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 30px;">
-                        <img src="cd_front.jpg" style="width: 600px; height: auto;">
-                        <img src="cd_back.jpg" style="width: 600px; height: auto;">
+                        <img class="scan" src="cd_front.jpg" style="width: 600px; height: auto;">
+                        <img class="scan" src="cd_back.jpg" style="width: 600px; height: auto;">
                     </div>
                 </section>
 
     <section class="cd-promo-code-card">
                 <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 30px;">
-                    <img src="code-card.jpg" style="width: 600px; height: auto;">
+                    <img class="scan" src="code-card.jpg" style="width: 600px; height: auto;">
                 </div>
             </section>
 
