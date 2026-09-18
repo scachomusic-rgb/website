@@ -50,44 +50,27 @@
             color: #4d7cff;
         }
 
-        .scan {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1.2s ease, transform 1.2s ease;
+        .scan { 
+            opacity: 0; 
+            transform: translateY(40px); 
+            animation: scanAppear linear both; 
+            animation-timeline: view(); 
+            animation-range: entry 0% cover 30%; 
         }
-
-        body.js-ready .scan {
-            opacity: 0
-        }
-
-        body.js-ready .scan.show {
-            opacity: 1
-            transform: translateY(0);
+        
+        @keyframes scanAppear { 
+            from { 
+                opacity: 0; 
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
     </style>
 </head>
-
-<script>
-    document.body.classList.add('js-ready');
-
-    const scans = document.querySelectorAll('.scan');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.15
-    });
-
-    scans.forEach(scan => {
-        observer.observe(scan);
-    });
-</script>
 
 <body>
 
