@@ -81,7 +81,33 @@
         details[open] .credits-content {
             opacity: 1;
         }
+
+        .artwork-container { 
+            display: inline-block; 
+            perspective: 1000px; 
+        }
+        .artwork { 
+            display: block; 
+            width: 700px; 
+            max-width: 90vw; 
+            height: auto;
+            
+            transform:
+                rotateX(calc(var(--rotate-x, 0) * 1deg))
+                rotateY(calc(var(--rotate-y, 0) * 1deg))
+                scale(var(--scale, 1));
         
+            transition:
+                transform 0.15s ease-out,
+                filter 0.4s ease;
+        
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+        .artwork-container:hover .artwork { 
+            filter: brightness(1.08); 
+        }
+                
     </style>
 </head>
 
@@ -96,10 +122,13 @@
        <p style="text-align: center;">&nbsp;</p>
 
        <p style="text-align: center;">
-            <img src="https://i.scdn.co/image/ab67616d0000e1a370b9269c16c4bbebf5fc1e90"
-                 alt="sonder-artwork"
-                 width="700"
-                 height="700">
+            <span class="artwork-container">
+                <img class="artwork"
+                    src="https://i.scdn.co/image/ab67616d0000e1a370b9269c16c4bbebf5fcle90"
+                    alt="sonder-artwork"
+                    width="700"
+                    height="700">
+            </span>
         </p>
 
       <p style="text-align: center;">&nbsp;</p>
@@ -206,6 +235,31 @@
     </footer>
 
 </div>
+
+<script>
+    const artwork = document.querySelector(".artwork");
+    const container = document.querySelector(".artwork-container");
+    
+    container.addEventListener("mousemove", function(event) {
+        const rect = container.getBoundingClientRect();
+    
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+    
+        const rotateY = x * 12;
+        const rotateX = y * -12;
+    
+        artwork.style.setProperty("--rotate-x", rotateX);
+        artwork.style.setProperty("--rotate-y", rotateY);
+        artwork.style.setProperty("--scale", 1.025);
+    });
+    
+    container.addEventListener("mouseleave", function() {
+        artwork.style.setProperty("--rotate-x", 0);
+        artwork.style.setProperty("--rotate-y", 0);
+        artwork.style.setProperty("--scale", 1);
+    });
+</script>
 
 </body>
 </html>
