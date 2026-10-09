@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>sonder</title>
-    <link rel="icon" type="image/png" href="https://f4.bcbits.com/img/0047109205_20.jpg">
-    <meta name="description" content="listen to the debut mixtape 'sonder'.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>sonder | scacha</title>
+    <meta name="description" content="Listen to sonder, the debut mixtape by scacha.">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="icon" type="image/jpeg" href="https://f4.bcbits.com/img/0047109205_20.jpg">
+    <link rel="canonical" href="https://www.scacha11111.com/sonder/">
+
+    <meta property="og:type" content="music.album">
+    <meta property="og:title" content="sonder | scacha">
+    <meta property="og:description" content="Listen to the debut mixtape sonder by scacha.">
+    <meta property="og:url" content="https://www.scacha11111.com/sonder/">
+    <meta property="og:image" content="https://www.scacha11111.com/sonder-artwork.jpg">
+    <meta name="twitter:card" content="summary_large_image">
 
     <style>
         html,
@@ -14,18 +25,18 @@
             padding: 0;
             width: 100%;
             min-height: 100%;
-            background-color: black;
+            background-color: #000;
         }
 
         body {
-            color: white;
-            font-family: Arial, sans-serif;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
             overflow-x: hidden;
         }
 
         .page {
-            background-color: black;
-            color: white;
+            background-color: #000;
+            color: #fff;
             min-height: 100vh;
             width: 100%;
             box-sizing: border-box;
@@ -33,6 +44,7 @@
         }
 
         img {
+            display: block;
             max-width: 100%;
             height: auto;
         }
@@ -40,32 +52,30 @@
         h3 {
             margin-top: 0;
         }
-        
-        .animated-link { 
-            color: white; 
-            text-decoration: none; 
-            transition: color 1.2s ease; 
+
+        .center {
+            text-align: center;
         }
-        .animated-link:hover { 
-            color: #8fa3ff; 
-            animation: linkShimmer 4s ease-in-out 1.2s infinite alternate; 
+
+        .animated-link {
+            color: #fff;
+            text-decoration: none;
+            transition: color 1.2s ease;
         }
-        
-        @keyframes linkShimmer { 
-            0% { 
-                color: #8fa3ff; 
-            }
-            50% {
-                color: #d9deff;
-            }
-            
-            100% {
-                color: #526fff;
-            }
+
+        .animated-link:hover {
+            color: #8fa3ff;
+            animation: linkShimmer 4s ease-in-out 1.2s infinite alternate;
+        }
+
+        @keyframes linkShimmer {
+            0% { color: #8fa3ff; }
+            50% { color: #d9deff; }
+            100% { color: #526fff; }
         }
 
         .text-toggle {
-            color: white;
+            color: #fff;
             transition: color 1s ease;
         }
 
@@ -75,170 +85,236 @@
 
         .credits-content {
             opacity: 0;
-            transition: opacity 1.5s ease:
+            transition: opacity 1.5s ease;
         }
 
         details[open] .credits-content {
             opacity: 1;
         }
 
-        .artwork-container { 
-            display: inline-block; 
-            perspective: 1000px; 
+        .artwork-container {
+            display: inline-block;
+            max-width: 90vw;
+            perspective: 1000px;
         }
-        .artwork { 
-            display: block; 
-            width: 700px; 
-            max-width: 90vw; 
+
+        .artwork {
+            display: block;
+            width: 700px;
+            max-width: 90vw;
             height: auto;
-            
+
             transform:
                 rotateX(calc(var(--rotate-x, 0) * 1deg))
                 rotateY(calc(var(--rotate-y, 0) * 1deg))
                 scale(var(--scale, 1));
-        
+
             transition:
                 transform 0.15s ease-out,
                 filter 0.4s ease;
-        
+
             transform-style: preserve-3d;
             will-change: transform;
         }
-        .artwork-container:hover .artwork { 
-            filter: brightness(1.08); 
+
+        .artwork-container:hover .artwork {
+            filter: brightness(1.08);
         }
- 
+
+        .titles-image {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+        }
+
+        .promo-images {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            margin-bottom: 30px;
+            padding: 0 12px;
+        }
+
+        .promo-images img {
+            width: 300px;
+            max-width: calc(50% - 15px);
+            height: auto;
+        }
+
+        .credits {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 16px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 0 12px;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .promo-images {
+                gap: 12px;
+            }
+
+            .artwork {
+                width: 90vw;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animated-link,
+            .text-toggle,
+            .artwork {
+                transition: none;
+            }
+
+            .animated-link:hover {
+                animation: none;
+            }
+
+            .artwork {
+                transform: none !important;
+            }
+        }
     </style>
 </head>
 
 <body>
-
 <div class="page">
 
-    <div>
-       <h3 style="text-align: center;">sonder - out now</h3>
-       <h3 style="text-align: center;">debut mixtape</h3>
+    <main>
+        <h3 class="center">sonder - out now</h3>
+        <h3 class="center">debut mixtape</h3>
 
-       <p style="text-align: center;">&nbsp;</p>
+        <p class="center">&nbsp;</p>
 
-       <p style="text-align: center;">
+        <p class="center">
             <span class="artwork-container">
                 <img class="artwork"
-                    src="sonder-artwork.jpg"
-                    alt="sonder-artwork"
-                    width="700"
-                    height="700">
+                     src="../sonder-artwork.jpg"
+                     alt="sonder artwork"
+                     width="700"
+                     height="700">
             </span>
         </p>
 
-      <p style="text-align: center;">&nbsp;</p>
+        <p class="center">&nbsp;</p>
 
-        <p style="text-align: center;">
+        <p class="center">
             stream
             <em>
                 <a class="animated-link"
-                    title="stream 'sonder'"
-                    href="https://band.link/sndr"
-                    target="_blank"
-                    rel="noopener">here</a>
+                   title="Stream sonder"
+                   href="https://band.link/sndr"
+                   target="_blank"
+                   rel="noopener noreferrer">here</a>
             </em>
         </p>
 
-        <p style="text-align: center;">&nbsp;</p>
+        <p class="center">&nbsp;</p>
 
         <section class="titles-section">
-            <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 30px;">
-                <img src="titles.png" style="width: 3000px; height: auto;">
+            <div style="display: flex; justify-content: center; margin-bottom: 30px; padding: 0 16px;">
+                <img class="titles-image"
+                     src="../titles.png"
+                     alt="sonder track titles">
             </div>
         </section>
 
-        <p style="text-align: center;">&nbsp;</p>
+        <p class="center">&nbsp;</p>
 
-        <p style="text-align: center;">conquer inner maturity / celebrate borrowed blooming / sterilise diabolical urges / grow empathetic fertility</p>
+        <p class="center">
+            conquer inner maturity / celebrate borrowed blooming /
+            sterilise diabolical urges / grow empathetic fertility
+        </p>
 
-        <p style="text-align: center;">&nbsp;</p>
+        <p class="center">&nbsp;</p>
 
-        <details style="max-width: 700px; margin: 0 auto; text-align: center;">
+        <details class="credits" style="text-align: center;">
 
-            <summary class="text-toggle" style="cursor: pointer; font-size: 13px; font-style: italic;">
+            <summary class="text-toggle"
+                     style="cursor: pointer; font-size: 13px; font-style: italic;">
                 credits
             </summary>
 
-            <div class="credits-content" style="font-size: 13px; font-style: italic; margin-top: 20px;">
+            <div class="credits-content"
+                 style="font-size: 13px; font-style: italic; margin-top: 20px;">
 
                 <p>written by aron miego</p>
-          
-                <p>produced, perfomed and mixed by scacha</p>
-          
-                <p>all instrumentation programmed and recorded by scacha</p>
-          
-                <p>&nbsp;</p>
-          
-                <p">published by copyright control</p>
-        
-                <p>&nbsp;</p>
-        
-                <p>artwork by scacha</p>
-          
-                <p>photography by @talk2medonttalk2me (instagram)</p>
-          
-                <p>used with permission</p>
-        
-                <p>&nbsp;</p>
-        
-                <p>© 2026 warm palm recordings</p>
-        
-                <p>℗ 2026 warm palm recordings</p>
-        
-                <p>wpr002de</p>
 
+                <p>produced, performed and mixed by scacha</p>
+
+                <p>all instrumentation programmed and recorded by scacha</p>
+
+                <p>&nbsp;</p>
+
+                <p>published by copyright control</p>
+
+                <p>&nbsp;</p>
+
+                <p>artwork by scacha</p>
+
+                <p>photography by @talk2medonttalk2me (instagram)</p>
+
+                <p>used with permission</p>
+
+                <p>&nbsp;</p>
+
+                <p>&copy; 2026 warm palm recordings</p>
+
+                <p>&#8471; 2026 warm palm recordings</p>
+
+                <p>wpr002de</p>
             </div>
 
         </details>
 
-        <p style="text-align: center;">&nbsp;</p>
-      
-        <p style="text-align: center;">
-                  buy lathe-cut 12" vinyl
-                  <em>
-                    <a class="animated-link"
-                        title="buy lathe-cut 12" vinyl"
-                        href="https://elasticstage.com/scacha/releases/sonder-album"
-                        target="_blank"
-                        rel="noopener">here</a>
-                  </em>
-              </p>
+        <p class="center">&nbsp;</p>
 
-        <p style="text-align: center;">&nbsp;</p>
+        <p class="center">
+            buy lathe-cut 12" vinyl
+            <em>
+                <a class="animated-link"
+                   title="Buy sonder lathe-cut vinyl"
+                   href="https://elasticstage.com/scacha/releases/sonder-album"
+                   target="_blank"
+                   rel="noopener noreferrer">here</a>
+            </em>
+        </p>
+
+        <p class="center">&nbsp;</p>
 
         <section class="cd-promo-section">
-            <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 30px;">
-                <img src="sonder-promo-cd-1.jpg" style="width: 300px; height: auto;">
-                <img src="sonder-promo-cd-2.jpg" style="width: 300px; height: auto;">
+            <div class="promo-images">
+                <img src="../sonder-promo-cd-1.jpg"
+                     alt="sonder CD promo, image 1">
+
+                <img src="../sonder-promo-cd-2.jpg"
+                     alt="sonder CD promo, image 2">
             </div>
         </section>
 
-        <p style="text-align: center;">
+        <p class="center">
             sonder
             <em>
                 <a class="animated-link"
-                    title="sonder on bandcamp"
-                    href="https://www.scacha11111.com/sonder/cd-promo"
-                    rel="noopener">cd promo</a>
+                   title="sonder CD promo"
+                   href="/sonder/cd-promo/">cd promo</a>
             </em>
             limited to 5 copies, issued on cdr
         </p>
 
-        <p style="text-align: center;">&nbsp;</p>
-        
-    </div>
+        <p class="center">&nbsp;</p>
+    </main>
 
-    <footer style="text-align: center; margin-top: 40px; font-size: 14px; color: #888888;">
-        <p>
-            <span style="color: #ffffff;">
-                &copy; 2026 warm palm recordings. all rights reserved.
-            </span>
-        </p>
+    <footer>
+        <p>&copy; 2026 warm palm recordings. all rights reserved.</p>
     </footer>
 
 </div>
@@ -246,26 +322,25 @@
 <script>
     const artwork = document.querySelector(".artwork");
     const container = document.querySelector(".artwork-container");
-    
-    container.addEventListener("mousemove", function(event) {
-        const rect = container.getBoundingClientRect();
-    
-        const x = (event.clientX - rect.left) / rect.width - 0.5;
-        const y = (event.clientY - rect.top) / rect.height - 0.5;
-    
-        const rotateY = x * 12;
-        const rotateX = y * -12;
-    
-        artwork.style.setProperty("--rotate-x", rotateX);
-        artwork.style.setProperty("--rotate-y", rotateY);
-        artwork.style.setProperty("--scale", 1.025);
-    });
-    
-    container.addEventListener("mouseleave", function() {
-        artwork.style.setProperty("--rotate-x", 0);
-        artwork.style.setProperty("--rotate-y", 0);
-        artwork.style.setProperty("--scale", 1);
-    });
+
+    if (artwork && container) {
+        container.addEventListener("mousemove", function(event) {
+            const rect = container.getBoundingClientRect();
+
+            const x = (event.clientX - rect.left) / rect.width - 0.5;
+            const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+            artwork.style.setProperty("--rotate-y", x * 12);
+            artwork.style.setProperty("--rotate-x", y * -12);
+            artwork.style.setProperty("--scale", 1.025);
+        });
+
+        container.addEventListener("mouseleave", function() {
+            artwork.style.setProperty("--rotate-x", 0);
+            artwork.style.setProperty("--rotate-y", 0);
+            artwork.style.setProperty("--scale", 1);
+        });
+    }
 </script>
 
 </body>
