@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>scacha | official website</title>
-    <link rel="icon" type="image/png" href="https://f4.bcbits.com/img/0047109205_20.jpg">
-    <meta name="description" content="scacha's official website. listen to the debut mixtape 'sonder' out now.">
+    <meta name="description" content="scacha's official website. Listen to the debut mixtape sonder, out now.">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="icon" type="image/jpeg" href="https://f4.bcbits.com/img/0047109205_20.jpg">
+
+    <link rel="canonical" href="https://www.scacha11111.com/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="scacha | official website">
+    <meta property="og:description" content="Listen to sonder, the debut mixtape by scacha.">
+    <meta property="og:url" content="https://www.scacha11111.com/">
+    <meta property="og:image" content="https://www.scacha11111.com/sonder-artwork.jpg">
+    <meta name="twitter:card" content="summary_large_image">
 
     <style>
         html,
@@ -14,18 +26,18 @@
             padding: 0;
             width: 100%;
             min-height: 100%;
-            background-color: black;
+            background-color: #000;
         }
 
         body {
-            color: white;
-            font-family: Arial, sans-serif;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
             overflow-x: hidden;
         }
 
         .page {
-            background-color: black;
-            color: white;
+            background-color: #000;
+            color: #fff;
             min-height: 100vh;
             width: 100%;
             box-sizing: border-box;
@@ -41,214 +53,232 @@
             margin-top: 0;
         }
 
-        .animated-link { 
-            color: white; 
-            text-decoration: none; 
-            transition: color 1.2s ease; 
+        .animated-link {
+            color: #fff;
+            text-decoration: none;
+            transition: color 1.2s ease;
         }
-        .animated-link:hover { 
-            color: #8fa3ff; 
-            animation: linkShimmer 4s ease-in-out 1.2s infinite alternate; 
+
+        .animated-link:hover {
+            color: #8fa3ff;
+            animation: linkShimmer 4s ease-in-out 1.2s infinite alternate;
         }
-        
-        @keyframes linkShimmer { 
-            0% { 
-                color: #8fa3ff; 
+
+        @keyframes linkShimmer {
+            0% { color: #8fa3ff; }
+            50% { color: #d9deff; }
+            100% { color: #526fff; }
+        }
+
+        .intro {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 16px;
+            font-size: 14px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 0 12px;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .page {
+                padding-top: 12px;
             }
-            50% {
-                color: #d9deff;
+
+            .intro {
+                padding: 0 20px;
             }
-            
-            100% {
-                color: #526fff;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animated-link {
+                transition: none;
+            }
+
+            .animated-link:hover {
+                animation: none;
             }
         }
     </style>
 </head>
 
 <body>
-
 <div class="page">
 
-    <div>
-        <p style="text-align: center;">
+    <header>
+        <p class="center">
             <img src="scacha-logo.png"
                  alt="scacha"
                  width="350"
                  height="350">
         </p>
 
-         <p style="text-align: center;">
+        <p class="center">
             stream music on:
-                <a class="animated-link"
-                    title="stream on youtube"
-                    href="https://www.youtube.com/channel/UCXzC24wBWB6CVKMCnNUFA2Q"
-                    target="_blank"
-                    rel="noopener">youtube</a>
+            <a class="animated-link"
+               title="Stream on YouTube"
+               href="https://www.youtube.com/channel/UCXzC24wBWB6CVKMCnNUFA2Q"
+               target="_blank" rel="noopener noreferrer">youtube</a>
             /
-                <a class="animated-link"
-                    title="stream on youtube music"
-                    href="https://music.youtube.com/channel/UCm38enUeH9m6tSI24na_sYw"
-                    target="_blank"
-                    rel="noopener">youtube music</a>
+            <a class="animated-link"
+               title="Stream on YouTube Music"
+               href="https://music.youtube.com/channel/UCm38enUeH9m6tSI24na_sYw"
+               target="_blank" rel="noopener noreferrer">youtube music</a>
             /
-                <a class="animated-link"
-                    title="stream on spotify"
-                    href="https://open.spotify.com/artist/1AWftYnBoekIuNzTtK7wwh"
-                    target="_blank"
-                    rel="noopener">spotify</a>
+            <a class="animated-link"
+               title="Stream on Spotify"
+               href="https://open.spotify.com/artist/1AWftYnBoekIuNzTtK7wwh"
+               target="_blank" rel="noopener noreferrer">spotify</a>
             /
-                    <a class="animated-link"
-                       title="stream on apple music"
-                       href="https://music.apple.com/ee/artist/scacha/6798074491"
-                       target="_blank"
-                       rel="noopener">apple music</a>
-
-             /
-                    <a class="animated-link"
-                       title="stream on soundcloud"
-                       href="https://soundcloud.com/scacha11111"
-                       target="_blank"
-                       rel="noopener">soundcloud</a>
-             
+            <a class="animated-link"
+               title="Stream on Apple Music"
+               href="https://music.apple.com/ee/artist/scacha/6798074491"
+               target="_blank" rel="noopener noreferrer">apple music</a>
+            /
+            <a class="animated-link"
+               title="Stream on SoundCloud"
+               href="https://soundcloud.com/scacha11111"
+               target="_blank" rel="noopener noreferrer">soundcloud</a>
         </p>
 
-        <p style="text-align: center;">
+        <p class="center">
             follow on:
-                <a class="animated-link"
-                    title="follow on instagram"
-                    href="https://www.instagram.com/scacha11111/"
-                    target="_blank"
-                    rel="noopener">instagram</a>
+            <a class="animated-link"
+               title="Follow on Instagram"
+               href="https://www.instagram.com/scacha11111/"
+               target="_blank" rel="noopener noreferrer">instagram</a>
+        </p>
+    </header>
+
+    <main>
+        <p class="center">&nbsp;</p>
+
+        <p class="center">debut mixtape <em>sonder</em> — out now!!</p>
+
+        <p class="center">
+            <a href="/sonder/" aria-label="Explore sonder">
+                <img src="sonder-artwork.jpg"
+                     alt="sonder artwork"
+                     width="500"
+                     height="500">
+            </a>
         </p>
 
-        <p style="text-align: center;">&nbsp;</p>
-
-        <p style="text-align: center;">debut mixtape <em>sonder</em> - out now!!</p>
-
-        <p style="text-align: center;">
-            <img src="sonder-artwork.jpg"
-                 alt="sonder-artwork"
-                 width="500"
-                 height="500">
-        </p>
-
-        <p style="text-align: center;">
+        <p class="center">
             <em>
                 <a class="animated-link"
-                    title="sonder"
-                    href="https://www.scacha11111.com/sonder"
-                    rel="noopener">listen now</a>
+                   title="Listen to sonder"
+                   href="/sonder/">listen now</a>
             </em>
         </p>
 
-        <p style="text-align: center;">&nbsp;</p>
+        <p class="center">&nbsp;</p>
 
-        <div style="max-width: 700px; margin: 0 auto; font-size: 14px; text-align: center;">
-
+        <div class="intro">
             <p>hello! my name is aron / scacha.</p>
 
             <p>i want to present you my first work — the mixtape sonder.</p>
 
             <p>for me, it is a big step into electronic soul music. sonder works as an invitation to go deep inside someone's story. it is a repetitive experience that becomes more recognisible each time you face it. you may find something yours in these sounds. something that wasn't able to be named deep inside you until this moment.</p>
-  
-            <p">i've faced a lot of moments of joy, yearning and grief. i have my own story for this work, but you can (preferably MUST) have your own story to lay over these recordings.</p>
 
-            <p">i don't want to be seen as a closed genius musician or something like that. i want to be (already) clear in my art and honest with you.</p>
+            <p>i've faced a lot of moments of joy, yearning and grief. i have my own story for this work, but you can (preferably MUST) have your own story to lay over these recordings.</p>
 
-            <p">lowwwwww bow from scacha11111</p>
+            <p>i don't want to be seen as a closed genius musician or something like that. i want to be (already) clear in my art and honest with you.</p>
 
+            <p>lowwwwww bow from scacha11111</p>
         </div>
 
-        <p style="text-align: center;">&nbsp;</p>
+        <p class="center">&nbsp;</p>
 
-        <p style="text-align: center;">
-                <img src="https://f4.bcbits.com/img/0047028596_10.jpg"
-                     alt="sonder lathe-cut 12&quot; vinyl"
-                     width="300"
-                     height="158">
-        </p>
-
-        <p style="text-align: center; font-size: 13px;">
-            <em>
-                <a class="animated-link"
-                    title="buy sonder physically"
-                    href="https://elasticstage.com/scacha/releases/sonder-album"
-                    target="_blank"
-                    rel="noopener">buy lathe-cut 12" vinyl</a>
-            </em>
-        </p>
-
-        <p style="text-align: center; font-size: 13px;">
-            <em>
-                <a class="animated-link"
-                    title="buy sonder physically"
-                    href="https://elasticstage.com/scacha/releases/sonder-album"
-                    target="_blank"
-                    rel="noopener">buy cd</a>
-            </em>
-        </p>
-
-        <p style="text-align: center;">&nbsp;</p>
-
-        <p style="text-align: center; font-size: 13px;">
-            buy sonder on
-            <em>            
-                <a class="animated-link"
-                    title="sonder on bandcamp"
-                    href="https://scacha11111.bandcamp.com/album/sonder"
-                    target="_blank"
-                    rel="noopener">bandcamp</a>
-            </em>
-            and get TWO bonus tracks and extra ARTS by scacha
-        </p>
-
-        <p style="text-align: center;">&nbsp;</p>
-
-        <p style="text-align: center;">
-            <img src="https://f4.bcbits.com/img/0047028800_10.jpg"
-                 alt="trick / net lathe-cut 12&quot; vinyl"
+        <p class="center">
+            <img src="https://f4.bcbits.com/img/0047028596_10.jpg"
+                 alt="sonder lathe-cut 12-inch vinyl"
                  width="300"
                  height="158">
         </p>
 
-        <p style="text-align: center; font-size: 13px;">
-            ALSO!! LIMITED LATHE-CUT 12'' VINYL 'TRICK / NET' OUT NOW!<br>
+        <p class="center" style="font-size: 13px;">
             <em>
                 <a class="animated-link"
-                    title="order trick / net"
-                    href="https://elasticstage.com/scacha/releases/trick-net-singleep"
-                    target="_blank"
-                    rel="noopener">ORDER HERE</a>
+                   title="Buy sonder on lathe-cut vinyl"
+                   href="https://elasticstage.com/scacha/releases/sonder-album"
+                   target="_blank" rel="noopener noreferrer">buy lathe-cut 12" vinyl</a>
             </em>
         </p>
 
-        <p style="text-align: center;">&nbsp;</p>
-
-        <p style="text-align: center; font-size: 14px;">
-            <em>            
+        <p class="center" style="font-size: 13px;">
+            <em>
                 <a class="animated-link"
-                    title="about me"
-                    href="https://www.scacha11111.com/about-me"
-                    rel="noopener">about me</a>
+                   title="Buy sonder on CD"
+                   href="https://elasticstage.com/scacha/releases/sonder-album"
+                   target="_blank" rel="noopener noreferrer">buy cd</a>
             </em>
         </p>
 
-        <p style="text-align: center;">&nbsp;</p>
+        <p class="center">&nbsp;</p>
 
-        <p style="text-align: center; font-size: 10px;">mail: scachomusic@gmail.com</p>
-        
-    </div>
-
-    <footer style="text-align: center; margin-top: 40px; font-size: 14px; color: #888888;">
-        <p>
-            <span style="color: #ffffff;">
-                &copy; 2026 warm palm recordings. all rights reserved.
-            </span>
+        <p class="center" style="font-size: 13px;">
+            buy <em>sonder</em> on
+            <em>
+                <a class="animated-link"
+                   title="sonder on Bandcamp"
+                   href="https://scacha11111.bandcamp.com/album/sonder"
+                   target="_blank" rel="noopener noreferrer">bandcamp</a>
+            </em>
+            and get TWO bonus tracks and extra ARTS by scacha
         </p>
+
+        <p class="center">&nbsp;</p>
+
+        <p class="center">
+            <img src="https://f4.bcbits.com/img/0047028800_10.jpg"
+                 alt="trick / net lathe-cut 12-inch vinyl"
+                 width="300"
+                 height="158">
+        </p>
+
+        <p class="center" style="font-size: 13px;">
+            ALSO!! LIMITED LATHE-CUT 12" VINYL 'TRICK / NET' OUT NOW!<br>
+            <em>
+                <a class="animated-link"
+                   title="Order trick / net"
+                   href="https://elasticstage.com/scacha/releases/trick-net-singleep"
+                   target="_blank" rel="noopener noreferrer">ORDER HERE</a>
+            </em>
+        </p>
+
+        <p class="center">&nbsp;</p>
+
+        <p class="center" style="font-size: 14px;">
+            <em>
+                <a class="animated-link"
+                   title="About scacha"
+                   href="/about-me/">about me</a>
+            </em>
+        </p>
+
+        <p class="center">&nbsp;</p>
+
+        <p class="center" style="font-size: 10px;">
+            mail: <a class="animated-link" href="mailto:scachomusic@gmail.com">scachomusic@gmail.com</a>
+        </p>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 warm palm recordings. all rights reserved.</p>
     </footer>
 
 </div>
-
 </body>
 </html>
