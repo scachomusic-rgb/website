@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>sonder — scacha</title>
-  <meta name="description" content="sonder — a release by scacha.">
+  <meta name="description" content="sonder — a debut mixtape by scacha.">
 
   <link rel="icon" href="https://f4.bcbits.com/img/0047109205_20.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,6 +40,7 @@
           description: "vinyl edition",
           price: "",
           status: "",
+          action: "buy",
           url: "https://elasticstage.com/scacha/releases/sonder-album"
         },
         {
@@ -46,6 +48,7 @@
           description: "cd edition",
           price: "",
           status: "",
+          action: "buy",
           url: "https://elasticstage.com/scacha/releases/sonder-album"
         },
         {
@@ -53,6 +56,7 @@
           description: "digital release",
           price: "",
           status: "",
+          action: "stream",
           url: "https://band.link/sndr"
         },
         {
@@ -60,6 +64,7 @@
           description: "digital album",
           price: "",
           status: "",
+          action: "stream",
           url: "https://scacha11111.bandcamp.com/album/sonder"
         }
       ],
@@ -91,7 +96,7 @@
         ["photography", "@talk2medonttalk2me, used with permission"]
       ],
 
-      copyright: "© 2026 warm palm recordings. all rights reserved.",
+      copyright: "© 2026 warm palm recordings.",
       phonogram: "℗ 2026 warm palm recordings."
     };
   </script>
@@ -311,25 +316,6 @@
       display: none;
     }
 
-    .release-links {
-      display: flex;
-      gap: 8px;
-      padding: 14px 0 22px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .small-button {
-      display: inline-block;
-      padding: 5px 10px;
-      border: 1px solid #bdbdbd;
-      background: white;
-      transition: background .2s ease;
-    }
-
-    .small-button:hover {
-      background: var(--hover);
-    }
-
     /* tracklist */
 
     .content-section {
@@ -369,7 +355,6 @@
       gap: 8px;
       padding: 9px 0;
       border-bottom: 1px solid var(--line);
-      counter-increment: track;
     }
 
     .track-number {
@@ -541,7 +526,6 @@
 
         <section class="artwork-column" aria-label="release artwork">
           <img id="main-artwork" class="main-artwork" alt="sonder artwork">
-
           <div id="gallery" class="gallery"></div>
         </section>
 
@@ -559,22 +543,6 @@
 
           <h2 class="formats-heading">available editions</h2>
           <div id="formats"></div>
-
-          <div class="release-links">
-            <a
-              class="small-button"
-              href="https://scacha11111.bandcamp.com/album/sonder"
-              target="_blank"
-              rel="noopener noreferrer"
-            >listen / purchase</a>
-
-            <a
-              class="small-button"
-              href="https://band.link/sndr"
-              target="_blank"
-              rel="noopener noreferrer"
-            >stream</a>
-          </div>
 
           <section class="content-section">
             <div class="section-heading">
@@ -633,15 +601,6 @@
       document.getElementById(id).textContent = value || "";
     }
 
-    function setExternalLink(element, url) {
-      element.href = url || "#";
-
-      if (/^https?:\/\//i.test(url || "")) {
-        element.target = "_blank";
-        element.rel = "noopener noreferrer";
-      }
-    }
-
     // release information
 
     document.title = release.title + " — " + release.artist;
@@ -660,17 +619,12 @@
     mainArtwork.src = release.cover;
     mainArtwork.alt = release.title + " artwork";
 
-    const artistLink = document.getElementById("release-artist");
-    setExternalLink(artistLink, "/");
-
     // additional images
 
     const gallery = document.getElementById("gallery");
 
     (release.gallery || []).forEach((src) => {
-      if (src === release.cover) {
-        return;
-      }
+      if (src === release.cover) return;
 
       const image = document.createElement("img");
       image.className = "gallery-image";
@@ -685,7 +639,7 @@
       gallery.appendChild(image);
     });
 
-    // editions and purchase links
+    // editions and purchase / streaming links
 
     const formatsElement = document.getElementById("formats");
 
@@ -718,7 +672,11 @@
 
       const link = document.createElement("a");
       link.className = "format-link";
-      link.textContent = "view edition";
+      link.textContent = format.action || (
+        format.name === "digital" || format.name === "bandcamp"
+          ? "stream"
+          : "buy"
+      );
       link.href = format.url || "#";
 
       if (!format.url) {
