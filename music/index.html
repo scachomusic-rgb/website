@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>music — scacha</title>
+  <meta name="description" content="official music catalog of scacha.">
+
+  <link rel="icon" href="https://f4.bcbits.com/img/0047109205_20.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --background: #ffffff;
+      --text: #111111;
+      --muted: #777777;
+      --line: #e8e8e8;
+      --hover: #f5f5f5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 12px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    select {
+      font: inherit;
+    }
+
+    button {
+      color: inherit;
+    }
+
+    .page {
+      width: min(100% - 48px, 1440px);
+      margin: 0 auto;
+    }
+
+    /* header */
+
+    .header {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      display: block;
+      width: 94px;
+      height: auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--text);
+    }
+
+    /* page heading */
+
+    .intro {
+      padding: 48px 0 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.1;
+      font-weight: 400;
+      letter-spacing: -0.055em;
+    }
+
+    .intro-description {
+      margin: 12px 0 0;
+      max-width: 420px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* catalog controls */
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
+      margin-bottom: 24px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .filters {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .filter-button {
+      padding: 7px 11px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .filter-button:hover {
+      color: var(--text);
+      background: var(--hover);
+    }
+
+    .filter-button.active {
+      color: var(--text);
+      border-color: var(--line);
+      background: #fff;
+    }
+
+    .sort-control {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-shrink: 0;
+      color: var(--muted);
+    }
+
+    .sort-control label {
+      white-space: nowrap;
+    }
+
+    .sort-control select {
+      max-width: 150px;
+      padding: 7px 20px 7px 8px;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: #fff;
+      color: var(--text);
+      cursor: pointer;
+      outline-offset: 3px;
+    }
+
+    /* release grid */
+
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 38px 18px;
+      min-height: 120px;
+    }
+
+    .release {
+      min-width: 0;
+    }
+
+    .release-cover-link {
+      display: block;
+      overflow: hidden;
+      background: #f3f3f3;
+      aspect-ratio: 1 / 1;
+    }
+
+    .release-cover {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+    }
+
+    .release-cover-link:hover .release-cover {
+      transform: scale(1.025);
+      opacity: 0.92;
+    }
+
+    .release-info {
+      padding-top: 13px;
+    }
+
+    .release-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .release-title {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+
+    .release-title a {
+      transition: opacity 0.2s ease;
+    }
+
+    .release-title a:hover {
+      opacity: 0.55;
+    }
+
+    .release-type {
+      flex-shrink: 0;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .release-artist {
+      margin: 4px 0 0;
+      color: var(--muted);
+    }
+
+    .release-meta {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 12px;
+      padding-top: 9px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .release-catalogue {
+      overflow-wrap: anywhere;
+    }
+
+    .release-formats {
+      text-align: right;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      padding: 50px 0;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .results-count {
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    /* footer */
+
+    .footer {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 90px;
+      padding: 22px 0 28px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      transition: color 0.2s ease;
+    }
+
+    .footer a:hover {
+      color: var(--text);
+    }
+
+    /* responsive layout */
+
+    @media (max-width: 1000px) {
+      .catalog {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+      .page {
+        width: calc(100% - 32px);
+      }
+
+      .header {
+        min-height: 68px;
+      }
+
+      .logo img {
+        width: 78px;
+      }
+
+      .nav {
+        gap: 14px;
+      }
+
+      .intro {
+        padding-top: 36px;
+      }
+
+      .toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .catalog {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 12px;
+      }
+
+      .release-title-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .release-info {
+        padding-top: 10px;
+      }
+
+      .footer {
+        flex-direction: column;
+        margin-top: 60px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .page {
+        width: calc(100% - 24px);
+      }
+
+      .nav {
+        gap: 10px;
+      }
+
+      .catalog {
+        gap: 24px 9px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+
+  <!-- =========================================
+       catalog data — edit this section to add
+       or update releases
+       ========================================= -->
+
+  <script>
+    const releases = [
+      {
+        title: "sonder",
+        artist: "scacha",
+        catalogue: "wpr002de",
+        type: "mixtape",
+        date: "2026-09-04",
+        order: 2,
+        cover: "/sonder-artwork.jpg",
+        page: "/sonder/",
+        formats: ["digital", "cd", "vinyl"]
+      },
+
+      {
+        title: "trick / net",
+        artist: "scacha",
+        catalogue: "wpr001de",
+        type: "single / ep",
+        date: "2026-08-26",
+        order: 1,
+        cover: "/trick-net-artwork.jpg",
+        page: "/trick-net/",
+        formats: ["digital", "vinyl"]
+      }
+    ];
+  </script>
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="header">
+      <a class="logo" href="/" aria-label="scacha home">
+        <img src="/scacha-logo.png" alt="scacha">
+      </a>
+
+      <nav class="nav" aria-label="main navigation">
+        <a class="active" href="/music/">music</a>
+        <a href="/about-me/">about</a>
+        <a href="mailto:scachomusic@gmail.com">contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro">
+        <p class="eyebrow">scacha / discography</p>
+        <h1>music</h1>
+        <p class="intro-description">
+          releases, editions and other musical works.
+        </p>
+      </section>
+
+      <section class="toolbar" aria-label="catalog controls">
+        <div class="filters" aria-label="filter releases">
+          <button
+            class="filter-button active"
+            type="button"
+            data-filter="all"
+            aria-pressed="true"
+          >all</button>
+
+          <button
+            class="filter-button"
+            type="button"
+            data-filter="mixtape"
+            aria-pressed="false"
+          >mixtapes</button>
+
+          <button
+            class="filter-button"
+            type="button"
+            data-filter="single-ep"
+            aria-pressed="false"
+          >singles / eps</button>
+        </div>
+
+        <div class="sort-control">
+          <label for="sort">sort by</label>
+          <select id="sort">
+            <option value="newest">newest</option>
+            <option value="oldest">oldest</option>
+          </select>
+        </div>
+      </section>
+
+      <section
+        id="catalog"
+        class="catalog"
+        aria-label="music catalog"
+        aria-live="polite"
+      ></section>
+
+      <p id="results-count" class="results-count"></p>
+    </main>
+
+    <footer class="footer">
+      <span>© 2026 warm palm recordings. all rights reserved.</span>
+
+      <div class="footer-links">
+        <a
+          href="https://www.instagram.com/scacha11111/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >instagram</a>
+
+        <a
+          href="https://scacha11111.bandcamp.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >bandcamp</a>
+
+        <a href="mailto:scachomusic@gmail.com">email</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const catalogElement = document.getElementById("catalog");
+    const resultsCount = document.getElementById("results-count");
+    const sortSelect = document.getElementById("sort");
+    const filterButtons = document.querySelectorAll("[data-filter]");
+
+    let activeFilter = "all";
+
+    function normalizeType(type) {
+      const value = type.trim().toLowerCase();
+
+      if (value === "single / ep" || value === "single-ep") {
+        return "single-ep";
+      }
+
+      return value;
+    }
+
+    function isExternal(url) {
+      return /^https?:\/\//i.test(url);
+    }
+
+    function makeElement(tag, className, text) {
+      const element = document.createElement(tag);
+
+      if (className) {
+        element.className = className;
+      }
+
+      if (text !== undefined && text !== null) {
+        element.textContent = text;
+      }
+
+      return element;
+    }
+
+    function makeLink(url, text, className) {
+      const link = makeElement("a", className, text);
+      link.href = url;
+
+      if (isExternal(url)) {
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+
+      return link;
+    }
+
+    function createReleaseCard(release) {
+      const article = makeElement("article", "release");
+
+      const coverLink = makeLink(
+        release.page || "#",
+        "",
+        "release-cover-link"
+      );
+
+      const image = makeElement("img", "release-cover");
+      image.src = release.cover;
+      image.alt = release.title + " cover";
+      image.loading = "lazy";
+      image.decoding = "async";
+
+      image.addEventListener("error", () => {
+        image.style.visibility = "hidden";
+      }, { once: true });
+
+      coverLink.appendChild(image);
+      article.appendChild(coverLink);
+
+      const info = makeElement("div", "release-info");
+      const titleRow = makeElement("div", "release-title-row");
+
+      const title = makeElement("h2", "release-title");
+      title.appendChild(
+        makeLink(release.page || "#", release.title, "")
+      );
+
+      const type = makeElement(
+        "span",
+        "release-type",
+        release.type
+      );
+
+      titleRow.append(title, type);
+      info.appendChild(titleRow);
+
+      info.appendChild(
+        makeElement("p", "release-artist", release.artist)
+      );
+
+      const meta = makeElement("div", "release-meta");
+
+      const catalogue = makeElement(
+        "span",
+        "release-catalogue",
+        release.catalogue || "catalogue number tba"
+      );
+
+      const formats = makeElement(
+        "span",
+        "release-formats",
+        (release.formats || []).join(" / ")
+      );
+
+      meta.append(catalogue, formats);
+      info.appendChild(meta);
+      article.appendChild(info);
+
+      return article;
+    }
+
+    function getVisibleReleases() {
+      let visible = releases.filter((release) => {
+        if (activeFilter === "all") {
+          return true;
+        }
+
+        return normalizeType(release.type) === activeFilter;
+      });
+
+      const direction = sortSelect.value;
+
+      visible.sort((a, b) => {
+        const dateA = a.date ? new Date(a.date).getTime() : NaN;
+        const dateB = b.date ? new Date(b.date).getTime() : NaN;
+
+        const hasDateA = Number.isFinite(dateA);
+        const hasDateB = Number.isFinite(dateB);
+
+        if (hasDateA && hasDateB && dateA !== dateB) {
+          return direction === "newest"
+            ? dateB - dateA
+            : dateA - dateB;
+        }
+
+        if (hasDateA !== hasDateB) {
+          return hasDateA ? -1 : 1;
+        }
+
+        const orderA = Number(a.order) || 0;
+        const orderB = Number(b.order) || 0;
+
+        return direction === "newest"
+          ? orderB - orderA
+          : orderA - orderB;
+      });
+
+      return visible;
+    }
+
+    function renderCatalog() {
+      const visibleReleases = getVisibleReleases();
+
+      catalogElement.replaceChildren();
+
+      if (visibleReleases.length === 0) {
+        catalogElement.appendChild(
+          makeElement("p", "empty-state", "no releases found.")
+        );
+      } else {
+        visibleReleases.forEach((release) => {
+          catalogElement.appendChild(createReleaseCard(release));
+        });
+      }
+
+      resultsCount.textContent =
+        visibleReleases.length +
+        (visibleReleases.length === 1 ? " release" : " releases");
+    }
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+
+        filterButtons.forEach((item) => {
+          const selected = item === button;
+
+          item.classList.toggle("active", selected);
+          item.setAttribute("aria-pressed", String(selected));
+        });
+
+        renderCatalog();
+      });
+    });
+
+    sortSelect.addEventListener("change", renderCatalog);
+
+    renderCatalog();
+  </script>
+</body>
+</html>
