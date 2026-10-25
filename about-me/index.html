@@ -1,158 +1,448 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>about me | scacha</title>
-    <meta name="description" content="About scacha, an independent electronic soul music artist.">
-    <meta name="theme-color" content="#000000">
+  <title>about me | scacha</title>
+  <meta name="description" content="scacha — songwriter and producer. making music since 2020.">
 
-    <link rel="icon" type="image/jpeg" href="https://f4.bcbits.com/img/0047109205_20.jpg">
-    <link rel="canonical" href="https://www.scacha11111.com/about-me/">
+  <link rel="icon" href="https://f4.bcbits.com/img/0047109205_20.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700&display=swap" rel="stylesheet">
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="about me | scacha">
-    <meta property="og:description" content="Learn more about scacha.">
-    <meta property="og:url" content="https://www.scacha11111.com/about-me/">
-    <meta property="og:image" content="https://www.scacha11111.com/sonder-artwork.jpg">
-    <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root {
+      --background: #fff;
+      --foreground: #111;
+      --muted: #777;
+      --line: #e7e7e7;
+      --page-width: 1120px;
+    }
 
-    <style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            min-height: 100%;
-            background-color: #000;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        body {
-            color: #fff;
-            font-family: Arial, Helvetica, sans-serif;
-            overflow-x: hidden;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .page {
-            background-color: #000;
-            color: #fff;
-            min-height: 100vh;
-            width: 100%;
-            box-sizing: border-box;
-            padding: 20px 0;
-        }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--foreground);
+      font-family: "Inter", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        img {
-            display: block;
-            max-width: 100%;
-            height: auto;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .animated-link {
-            color: #fff;
-            text-decoration: none;
-            transition: color 1.2s ease;
-        }
+    a:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 5px;
+    }
 
-        .animated-link:hover {
-            color: #8fa3ff;
-            animation: linkShimmer 4s ease-in-out 1.2s infinite alternate;
-        }
+    .page {
+      width: min(var(--page-width), calc(100% - 80px));
+      margin: 0 auto;
+    }
 
-        @keyframes linkShimmer {
-            0% { color: #8fa3ff; }
-            50% { color: #d9deff; }
-            100% { color: #526fff; }
-        }
+    /* header */
 
-        .page-title {
-            font-size: 24px;
-            text-align: center;
-        }
+    .header {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
 
-        .face {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-            padding: 0 16px;
-        }
+    .wordmark {
+      font-size: 19px;
+      font-weight: 650;
+      letter-spacing: -1px;
+    }
 
-        .face img {
-            width: 600px;
-            max-width: 100%;
-            height: auto;
-        }
+    .navigation {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: 12px;
+      color: var(--muted);
+    }
 
-        .bio {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 0 16px;
-            font-size: 14px;
-            text-align: center;
-            line-height: 1.6;
-        }
+    .navigation a {
+      transition: color 180ms ease;
+    }
 
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 0 12px;
-            font-size: 14px;
-            color: #fff;
-        }
+    .navigation a:hover,
+    .navigation a[aria-current="page"] {
+      color: var(--foreground);
+    }
 
-        @media (max-width: 600px) {
-            .page-title {
-                font-size: 22px;
-            }
+    /* main layout */
 
-            .bio {
-                padding: 0 20px;
-            }
-        }
+    .about {
+      display: grid;
+      grid-template-columns: minmax(250px, 0.8fr) minmax(0, 1.2fr);
+      gap: clamp(55px, 9vw, 125px);
+      align-items: start;
+      padding: 100px 0 120px;
+    }
 
-        @media (prefers-reduced-motion: reduce) {
-            .animated-link {
-                transition: none;
-            }
+    .portrait-column {
+      position: sticky;
+      top: 55px;
+    }
 
-            .animated-link:hover {
-                animation: none;
-            }
-        }
-    </style>
+    .portrait {
+      width: 100%;
+      max-width: 370px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #f5f5f5;
+    }
+
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
+
+    .portrait-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 15px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    /* biography */
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 5px 0 28px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #111;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(58px, 8vw, 100px);
+      font-weight: 600;
+      letter-spacing: -0.095em;
+      line-height: 0.95;
+    }
+
+    .real-name {
+      margin: 20px 0 0;
+      font-size: 15px;
+      font-weight: 450;
+      letter-spacing: -0.025em;
+    }
+
+    .pronouns {
+      display: inline-block;
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .role {
+      margin: 47px 0 20px;
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+    }
+
+    .bio {
+      max-width: 480px;
+      margin: 0;
+      color: #555;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.9;
+      letter-spacing: -0.015em;
+    }
+
+    /* details */
+
+    .details {
+      margin-top: 53px;
+      border-top: 1px solid var(--line);
+    }
+
+    .detail {
+      display: grid;
+      grid-template-columns: 125px minmax(0, 1fr);
+      gap: 20px;
+      padding: 17px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .detail-label {
+      color: var(--muted);
+    }
+
+    .detail-value {
+      overflow-wrap: anywhere;
+    }
+
+    .contact {
+      margin-top: 47px;
+    }
+
+    .section-label {
+      margin: 0 0 17px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .email {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+    }
+
+    .email-arrow {
+      display: inline-block;
+      transition: transform 180ms ease;
+    }
+
+    .email:hover .email-arrow {
+      transform: translate(3px, -3px);
+    }
+
+    /* footer */
+
+    .footer {
+      min-height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a:hover {
+      color: var(--foreground);
+    }
+
+    /* responsive */
+
+    @media (max-width: 760px) {
+      .page {
+        width: calc(100% - 40px);
+      }
+
+      .header {
+        min-height: 72px;
+      }
+
+      .navigation {
+        gap: 18px;
+        font-size: 11px;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 48px 0 75px;
+      }
+
+      .portrait-column {
+        position: static;
+      }
+
+      .portrait {
+        max-width: 100%;
+        width: min(100%, 400px);
+      }
+
+      h1 {
+        font-size: clamp(62px, 15vw, 90px);
+      }
+
+      .role {
+        margin-top: 37px;
+      }
+
+      .details {
+        margin-top: 40px;
+      }
+
+      .detail {
+        grid-template-columns: 105px minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .footer {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding: 24px 0;
+        gap: 17px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .page {
+        width: calc(100% - 32px);
+      }
+
+      .navigation {
+        gap: 12px;
+      }
+
+      .detail {
+        grid-template-columns: 90px minmax(0, 1fr);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<div class="page">
+  <div class="page">
 
-    <main>
-        <p class="center">&nbsp;</p>
+    <header class="header">
+      <a class="wordmark" href="/" aria-label="scacha home">scacha</a>
 
-        <p class="page-title">about meeeee</p>
+      <nav class="navigation" aria-label="main navigation">
+        <a href="/music/">music</a>
+        <a href="/about-me/" aria-current="page">about me</a>
+      </nav>
+    </header>
 
-        <p class="center">&nbsp;</p>
+    <main class="about">
 
-        <section class="face">
-            <img src="../facee_6000.jpg"
-                 alt="scacha"
-                 width="600"
-                 height="600">
-        </section>
-
-        <div class="bio">
-            <p>full name: aron miego</p>
-
-            <p>he/him/his</p>
-
-            <p>currently working on the debut album</p>
+      <aside class="portrait-column">
+        <div class="portrait">
+          <img
+            src="/face_6000.png"
+            alt="scacha face logo"
+          >
         </div>
+
+        <div class="portrait-caption">
+          <span>scacha</span>
+          <span>artist profile</span>
+        </div>
+      </aside>
+
+      <section class="biography">
+        <p class="eyebrow">about me</p>
+
+        <h1>scacha</h1>
+
+        <p class="real-name">aron miego</p>
+        <span class="pronouns">he/him</span>
+
+        <p class="role">songwriter and producer.</p>
+
+        <p class="bio">
+          making music since 2020. after working privately
+          for years, i am now releasing music openly under
+          my own name.
+        </p>
+
+        <div class="details">
+
+          <div class="detail">
+            <span class="detail-label">born</span>
+            <span class="detail-value">10 february 2009</span>
+          </div>
+
+          <div class="detail">
+            <span class="detail-label">instruments</span>
+            <span class="detail-value">piano</span>
+          </div>
+
+          <div class="detail">
+            <span class="detail-label">software</span>
+            <span class="detail-value">fl studio · ableton live</span>
+          </div>
+
+          <div class="detail">
+            <span class="detail-label">roles</span>
+            <span class="detail-value">songwriting · production · recording</span>
+          </div>
+
+        </div>
+
+        <div class="contact">
+          <p class="section-label">get in touch</p>
+
+          <a class="email" href="mailto:scachomusic@gmail.com">
+            scachomusic@gmail.com
+            <span class="email-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
     </main>
 
-    <footer>
-        <p>&copy; 2026 warm palm recordings. all rights reserved.</p>
+    <footer class="footer">
+      <span>© 2026 warm palm recordings. all rights reserved.</span>
+
+      <nav class="footer-links" aria-label="social links">
+        <a href="https://www.instagram.com/scacha11111/" target="_blank" rel="noopener noreferrer">instagram ↗</a>
+        <a href="https://scacha11111.bandcamp.com/" target="_blank" rel="noopener noreferrer">bandcamp ↗</a>
+        <a href="https://soundcloud.com/scacha11111" target="_blank" rel="noopener noreferrer">soundcloud ↗</a>
+      </nav>
     </footer>
 
-</div>
+  </div>
 </body>
 </html>
