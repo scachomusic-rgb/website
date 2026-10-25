@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +13,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- =========================================
-       release data — edit this section
-       ========================================= -->
-
   <script>
     const release = {
       title: "trick / net",
@@ -29,8 +26,7 @@
 
       cover: "/trick-net-artwork.jpg",
 
-      gallery: [
-      ],
+      gallery: [],
 
       formats: [
         {
@@ -56,19 +52,22 @@
         "net"
       ],
 
-      bonusTracks: [
-      ],
+      bonusTracks: [],
 
       bonusNote: "",
 
-       credits: [
+      credits: [
         ["written by", "aron miego"],
         ["produced by", "scacha"],
         ["performed by", "scacha"],
         ["mixed by", "scacha"],
         ["instrumentation programmed and recorded by", "scacha"],
         ["artwork by", "scacha"],
-        ["photography by", '<a href="https://www.instagram.com/talk2medonttalk2me/" target="_blank" rel="noopener noreferrer">@talk2medonttalk2me</a>, used with permission'],
+        [
+          "photography by",
+          "@talk2medonttalk2me, used with permission",
+          "https://www.instagram.com/talk2medonttalk2me/"
+        ]
       ],
 
       copyright: "© 2026 warm palm recordings",
@@ -366,6 +365,17 @@
       overflow-wrap: anywhere;
     }
 
+    .credit a {
+      text-decoration: underline;
+      text-decoration-color: #bdbdbd;
+      text-underline-offset: 3px;
+      transition: text-decoration-color .2s ease;
+    }
+
+    .credit a:hover {
+      text-decoration-color: #111;
+    }
+
     .legal {
       margin-top: 22px;
       color: var(--muted);
@@ -557,7 +567,7 @@
     }
 
     document.title =
-      [release.title, release.artist].filter(Boolean).join(" — ") || "release";
+      [release.title, release.artist].filter(Boolean).join(" | ") || "release";
 
     setText("release-title", release.title);
     setText("release-artist", release.artist);
@@ -716,7 +726,7 @@
 
     const creditsElement = document.getElementById("credits");
 
-    (release.credits || []).forEach(([role, person]) => {
+    (release.credits || []).forEach(([role, person, url]) => {
       const row = document.createElement("div");
       row.className = "credit";
 
@@ -724,7 +734,17 @@
       term.textContent = role || "";
 
       const description = document.createElement("dd");
-      description.textContent = person || "";
+
+      if (url) {
+        const link = document.createElement("a");
+        link.href = url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = person || "";
+        description.appendChild(link);
+      } else {
+        description.textContent = person || "";
+      }
 
       row.append(term, description);
       creditsElement.appendChild(row);
