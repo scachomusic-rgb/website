@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,8 +50,8 @@
       ],
 
       tracks: [
-        "trick",
-        "net"
+        { name: "trick", duration: "2:27" },
+        { name: "net", duration: "2:36" }
       ],
 
       bonusTracks: [],
@@ -317,8 +318,9 @@
 
     .track {
       display: grid;
-      grid-template-columns: 28px minmax(0, 1fr);
+      grid-template-columns: 28px minmax(0, 1fr) 42px;
       gap: 8px;
+      align-items: baseline;
       padding: 9px 0;
       border-bottom: 1px solid var(--line);
     }
@@ -330,6 +332,13 @@
 
     .track-name {
       overflow-wrap: anywhere;
+    }
+
+    .track-duration {
+      color: var(--muted);
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
     }
 
     .bonus-heading {
@@ -679,9 +688,21 @@
 
       const name = document.createElement("span");
       name.className = "track-name";
-      name.textContent = track;
+      name.textContent = typeof track === "string" ? track : track.name;
 
-      item.append(number, name);
+      const duration = document.createElement("span");
+      duration.className = "track-duration";
+      duration.textContent =
+        typeof track === "string" ? "" : (track.duration || "");
+
+      if (duration.textContent) {
+        duration.setAttribute(
+          "aria-label",
+          "duration " + duration.textContent
+        );
+      }
+
+      item.append(number, name, duration);
       tracklist.appendChild(item);
     });
 
@@ -714,9 +735,21 @@
 
         const name = document.createElement("span");
         name.className = "track-name";
-        name.textContent = track;
+        name.textContent = typeof track === "string" ? track : track.name;
 
-        item.append(number, name);
+        const duration = document.createElement("span");
+        duration.className = "track-duration";
+        duration.textContent =
+          typeof track === "string" ? "" : (track.duration || "");
+
+        if (duration.textContent) {
+          duration.setAttribute(
+            "aria-label",
+            "duration " + duration.textContent
+          );
+        }
+
+        item.append(number, name, duration);
         bonusList.appendChild(item);
       });
     } else {
