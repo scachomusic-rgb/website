@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>music — scacha</title>
+  <title>music | scacha</title>
   <meta name="description" content="official music catalog of scacha.">
 
   <link rel="icon" href="https://f4.bcbits.com/img/0047109205_20.jpg">
@@ -408,10 +407,7 @@
     }
   </style>
 
-  <!-- =========================================
-       catalog data — edit this section to add
-       or update releases
-       ========================================= -->
+  <!-- catalog data -->
 
   <script>
     const releases = [
@@ -467,28 +463,11 @@
       </section>
 
       <section class="toolbar" aria-label="catalog controls">
-        <div class="filters" aria-label="filter releases">
-          <button
-            class="filter-button active"
-            type="button"
-            data-filter="all"
-            aria-pressed="true"
-          >all</button>
-
-          <button
-            class="filter-button"
-            type="button"
-            data-filter="mixtape"
-            aria-pressed="false"
-          >mixtapes</button>
-
-          <button
-            class="filter-button"
-            type="button"
-            data-filter="single-ep"
-            aria-pressed="false"
-          >singles / eps</button>
-        </div>
+        <div
+          class="filters"
+          id="filters"
+          aria-label="filter releases"
+        ></div>
 
         <div class="sort-control">
           <label for="sort">sort by</label>
@@ -535,18 +514,78 @@
     const catalogElement = document.getElementById("catalog");
     const resultsCount = document.getElementById("results-count");
     const sortSelect = document.getElementById("sort");
-    const filterButtons = document.querySelectorAll("[data-filter]");
+    const filtersElement = document.getElementById("filters");
 
     let activeFilter = "all";
 
     function normalizeType(type) {
-      const value = type.trim().toLowerCase();
+      const value = (type || "").trim().toLowerCase();
 
       if (value === "single / ep" || value === "single-ep") {
         return "single-ep";
       }
 
       return value;
+    }
+
+    function formatCategory(type) {
+      const labels = {
+        "mixtape": "mixtapes",
+        "album": "albums",
+        "single": "singles",
+        "ep": "eps",
+        "single-ep": "singles / eps",
+        "maxi-single": "maxi-singles",
+        "compilation": "compilations",
+        "soundtrack": "soundtracks"
+      };
+
+      return labels[type] || type;
+    }
+
+    function renderFilters() {
+      filtersElement.replaceChildren();
+
+      const categories = [
+        ...new Set(
+          releases
+            .map(release => normalizeType(release.type))
+            .filter(Boolean)
+        )
+      ];
+
+      const filters = [
+        { value: "all", label: "all" },
+        ...categories.map(type => ({
+          value: type,
+          label: formatCategory(type)
+        }))
+      ];
+
+      if (!filters.some(filter => filter.value === activeFilter)) {
+        activeFilter = "all";
+      }
+
+      filters.forEach(filter => {
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "filter-button";
+        button.textContent = filter.label;
+
+        const selected = filter.value === activeFilter;
+
+        button.classList.toggle("active", selected);
+        button.setAttribute("aria-pressed", String(selected));
+
+        button.addEventListener("click", () => {
+          activeFilter = filter.value;
+          renderFilters();
+          renderCatalog();
+        });
+
+        filtersElement.appendChild(button);
+      });
     }
 
     function isExternal(url) {
@@ -644,12 +683,9 @@
     }
 
     function getVisibleReleases() {
-      let visible = releases.filter((release) => {
-        if (activeFilter === "all") {
-          return true;
-        }
-
-        return normalizeType(release.type) === activeFilter;
+      const visible = releases.filter(release => {
+        return activeFilter === "all" ||
+          normalizeType(release.type) === activeFilter;
       });
 
       const direction = sortSelect.value;
@@ -692,7 +728,7 @@
           makeElement("p", "empty-state", "no releases found.")
         );
       } else {
-        visibleReleases.forEach((release) => {
+        visibleReleases.forEach(release => {
           catalogElement.appendChild(createReleaseCard(release));
         });
       }
@@ -702,23 +738,9 @@
         (visibleReleases.length === 1 ? " release" : " releases");
     }
 
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        activeFilter = button.dataset.filter;
-
-        filterButtons.forEach((item) => {
-          const selected = item === button;
-
-          item.classList.toggle("active", selected);
-          item.setAttribute("aria-pressed", String(selected));
-        });
-
-        renderCatalog();
-      });
-    });
-
     sortSelect.addEventListener("change", renderCatalog);
 
+    renderFilters();
     renderCatalog();
   </script>
 </body>
