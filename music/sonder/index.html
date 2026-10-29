@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -430,6 +429,65 @@
       text-align: left;
     }
 
+    /* liner notes */
+
+    .liner-notes {
+      margin-top: 38px;
+    }
+
+    .liner-notes summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 0 10px;
+      border-bottom: 1px solid var(--line);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .liner-notes summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .liner-notes summary::after {
+      content: "+";
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .liner-notes[open] summary::after {
+      content: "−";
+    }
+
+    .liner-notes summary:focus-visible {
+      outline: 1px solid var(--muted);
+      outline-offset: 4px;
+    }
+
+    .liner-notes-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 14px 0 0;
+      list-style: none;
+    }
+
+    .liner-notes-list li {
+      display: grid;
+      grid-template-columns: 8px minmax(0, 1fr);
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .liner-notes-list li::before {
+      content: "·";
+      color: var(--muted);
+    }
+
     /* footer */
 
     .footer {
@@ -593,6 +651,19 @@
               <p id="legal-catalogue"></p>
             </div>
           </section>
+
+          <details class="liner-notes">
+            <summary>liner notes</summary>
+
+            <ul class="liner-notes-list">
+              <li>'net' is built around a sample taken from the ending of 'trick'.</li>
+              <li>my voice appears on tracks 03, 04 and 05. the vocals are unprocessed, apart from a blurring effect.</li>
+              <li>the original title of the mixtape was 'shelter'.</li>
+              <li>'net' was originally titled 'fishnet'.</li>
+              <li>'outgrow' originally had a long intro.</li>
+              <li>'untitled a' was originally titled 'amends' and included in the tracklist between 'chalk' and 'outgrow'. it was removed because it didn't fit the mixtape's overall structure and was replaced by `treasure`. it was later included as a bonus track.</li>
+            </ul>
+          </details>
         </section>
 
       </div>
