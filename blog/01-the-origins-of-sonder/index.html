@@ -1,1 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>the origins of “sonder” — scacha</title>
+  <meta name="description" content="a personal account of the origins, concept, and creation of scacha's debut mixtape, sonder.">
+
+  <link rel="icon" type="image/jpeg" href="https://f4.bcbits.com/img/0047109205_20.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #111;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      width: 100%;
+      padding: 28px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eaeaea;
+    }
+
+    .logo img {
+      display: block;
+      width: 125px;
+      height: auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav a {
+      font-size: 13px;
+      color: #777;
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: #111;
+    }
+
+    .page {
+      width: 90%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 75px 0 100px;
+    }
+
+    .article-header {
+      max-width: 850px;
+      margin: 0 auto 65px;
+      text-align: center;
+    }
+
+    .article-category {
+      margin-bottom: 20px;
+      color: #999;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .article-header h1 {
+      margin-bottom: 18px;
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 1.1;
+    }
+
+    .article-subtitle {
+      color: #777;
+      font-size: 15px;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .article-content {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 15px;
+      line-height: 1.9;
+      color: #333;
+    }
+
+    .article-content p {
+      margin-bottom: 25px;
+    }
+
+    .article-content h2 {
+      margin: 58px 0 25px;
+      color: #111;
+      font-size: 21px;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      line-height: 1.4;
+    }
+
+    .article-content h3 {
+      margin: 38px 0 18px;
+      color: #111;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .article-content strong {
+      color: #111;
+      font-weight: 600;
+    }
+
+    .article-content em {
+      font-style: italic;
+    }
+
+    .article-content a {
+      color: #111;
+      text-decoration: underline;
+      text-decoration-color: #aaa;
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.2s ease;
+    }
+
+    .article-content a:hover {
+      text-decoration-color: #111;
+    }
+
+    .article-content blockquote {
+      margin: 35px 0;
+      padding-left: 22px;
+      border-left: 2px solid #ddd;
+      color: #777;
+      font-style: italic;
+    }
+
+    .article-image {
+      margin: 45px 0;
+      text-align: center;
+    }
+
+    .article-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .article-image figcaption {
+      margin-top: 12px;
+      color: #999;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .article-image--narrow {
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .article-footer {
+      max-width: 680px;
+      margin: 65px auto 0;
+      padding-top: 25px;
+      border-top: 1px solid #eaeaea;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .article-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .article-meta-label {
+      color: #999;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .article-meta-value {
+      color: #333;
+      font-size: 12px;
+    }
+
+    .back-link {
+      display: block;
+      width: fit-content;
+      margin: 55px auto 0;
+      color: #777;
+      font-size: 12px;
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: #111;
+    }
+
+    .site-footer {
+      padding: 30px 5%;
+      border-top: 1px solid #eaeaea;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-copy {
+      color: #999;
+      font-size: 11px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .footer-links a {
+      color: #777;
+      font-size: 11px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #111;
+    }
+
+    @media (max-width: 700px) {
+      .site-header {
+        padding: 22px 5%;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .logo img {
+        width: 110px;
+      }
+
+      .nav {
+        gap: 21px;
+      }
+
+      .nav a {
+        font-size: 12px;
+      }
+
+      .page {
+        width: 88%;
+        padding: 55px 0 75px;
+      }
+
+      .article-header {
+        margin-bottom: 45px;
+      }
+
+      .article-header h1 {
+        font-size: 35px;
+      }
+
+      .article-subtitle {
+        font-size: 13px;
+      }
+
+      .article-content {
+        font-size: 14px;
+        line-height: 1.85;
+      }
+
+      .article-content h2 {
+        margin-top: 45px;
+        font-size: 19px;
+      }
+
+      .article-content h3 {
+        margin-top: 32px;
+        font-size: 15px;
+      }
+
+      .article-footer {
+        margin-top: 50px;
+      }
+
+      .site-footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 18px;
+      }
+
+      .footer-links {
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .nav {
+        gap: 15px;
+      }
+
+      .nav a {
+        font-size: 11px;
+      }
+
+      .article-header h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a href="/" class="logo">
+      <img src="/scacha-logo-black.png" alt="scacha">
+    </a>
+
+    <nav class="nav" aria-label="main navigation">
+      <a href="/music/">music</a>
+      <a href="/blog/" class="active" aria-current="page">blog</a>
+      <a href="/about-me/">about</a>
+      <a href="mailto:aron@scacha11111.com">contact</a>
+    </nav>
+  </header>
+
+
+  <main class="page">
+
+    <header class="article-header">
+      <p class="article-category">scacha / blog</p>
+
+      <h1>the origins of 'sonder'</h1>
+
+      <p class="article-subtitle">
+        a personal account of the origins, concept, and creation of scacha's debut mixtape, sonder.
+      </p>
+    </header>
+
+
+    <article class="article-content">
+
+      <p><em>sonder</em> is a deeply personal and poignant work for me. it takes me back to the period that inspired me to reflect my circumstances, feelings, and thoughts through music. as i write this article, i'm immersing myself in it all over again, listening to the mixtape once more to experience those feelings and convey them to you directly through these words.</p>
+
+      <p>i have a lot of experience writing music, and i've always put my soul into it. in a way, writing music is a means of survival for me — a way to reflect everything that has been sitting inside me for so long. the previous year (2025) was emotionally intense and left me with a lot of wounds that were trying to heal. this process of healing inspired me to write compositions in an entirely different way. this work is very experimental for me; i've never made music like this before. it's also the first time i've used my own voice as an addition to the music. i wrote a lot of compositions, and even now, there are many that i don't particularly like. what eventually came out is only a tiny fraction of what still remains in the shadows.</p>
+
+      <p>back then, i was writing music without having any idea what kind of final product i wanted to create. i love concepts, i love the details hidden in little things, and i try to reflect all of that in my work as much as possible. i simply kept writing: some things i left to be reworked, some i finished, and some i have no intention of bringing to light. this summer, i felt the need to bring together all the experiences i'd lived through. that's when i started selecting material and shaping it into a release.</p>
+
+      <p>the compositions <em>trick</em> and <em>net</em> were written one day apart, in early may. that's when i realized they would open the project, although i had no idea what the rest of it would consist of, what its title would be, or what format it would take. closer to june, the working title <em>shelter</em> emerged.</p>
+
+      <p>the truth is, the experience that served as the foundation for this mixtape wasn't something terribly traumatic or so unusual that not everyone could understand it. no. it's a fairly typical experience for someone my age, but apparently, because of certain traits of mine, i experienced it very intensely. when i finally had the mixtape in my hands, i realized that what i was holding was my experience: the event that shaped it, the consequences, the attempt to ignore them, the downfall, growing stronger, and taking a step forward. and i realized that my experience wasn't individual or unique — everyone goes through something like this. which meant that the title <em>sonder</em> was perfectly fitting. the title came about, i think, just before i sent the mixtape and the maxi-single [<em>trick / net</em>] for release at the end of july. after looking at the track titles and considering the logic of the release, i couldn't see the working title <em>shelter</em> reflected in the work. <em>sonder</em> is about an experience, from beginning to end. and it has a good ending. an ending that everyone should eventually arrive at: understanding yourself, forgiving your past experience, and taking control of your past.</p>
+
+      <p>have you noticed that all the compositions are connected to one another? i'm talking about the transitions — how they flow into each other. the idea of one continuous stream.</p>
+
+
+      <h2>the compositions</h2>
+
+      <p>let's talk about the compositions themselves.</p>
+
+      <h3><em>trick</em></h3>
+
+      <p>the only composition on the mixtape with drums (i actually hate programming them). i wanted to convey that feeling of euphoria that comes from someone reaching out to me. my hunger for the actions i needed from someone had finally been satisfied after such a long wait, and i didn't care whether that person was actually who i thought they were. did you hear the slowdowns? the changes in pitch? in rhythm? those are the doubts. and the open ending, followed by the transition into <em>net</em>, is complete surrendering of yourself into the hands of someone who sets you on the path to discovering yourself.</p>
+
+      <h3><em>net</em></h3>
+
+      <p>a composition built on <em>trick</em>, which is why the two are connected not only through the transition, but in their very structure. if you raise the pitch of the track by four octaves and increase its speed in the right proportion, you'll hear the fading outro of <em>trick</em> repeating throughout the entire composition. and the noise you hear in the track is the realization of a catastrophe: what kind of person they were, what they did. this is about being treated badly. the knocks, the changes in sound — that's the internal struggle with yourself: how could i let this happen? why? what for? but the composition suddenly cuts off and transitions into <em>tender</em>. this is about an abrupt inner silence. an attempt to suppress the noise and pretend that nothing happened.</p>
+
+      <h3><em>tender</em></h3>
+
+      <p>one of the most beautiful compositions i've ever written. it's that very tenderness that i show. and it's an attempt to turn a blind eye to everything that went wrong. towards the end, everything loses its structure and boundaries, the sound falls apart, and a voice screams. oh, and by the way, my voice can be heard in the background of this composition. there are lyrics, but looking at them now, i realize they're so simple and stupid??? i'm not going to publish them, but i'm happy to see any attempts to figure out what's being sung.</p>
+
+      <h3><em>chalk</em></h3>
+
+      <p>my favourite composition. it's what's left behind after everything: deception, inner noise, suppression, and yet another breakdown. it's a scar. it's longing for what existed before [<em>trick</em>]. the wound is still open, but it stops bleeding. my voice is here, too. i really love the violins, and the way the composition eventually comes to an end and transitions into what follows.</p>
+
+      <h3><em>treasure</em></h3>
+
+      <p>the point at which you realize your own worth against the backdrop of everything that happened. it was always there, and it wasn't lost when the artificial world fell apart. and the treasure wasn't the person who made you feel whole — it was you yourself. this realization gradually stitches the wound back together and helps you move forward. my voice can be heard here, too.</p>
+
+      <h3><em>outgrow</em></h3>
+
+      <p>the process of distancing yourself from the experience. a process of rethinking, reconsidering, and transforming yourself. this becomes the foundation for the next step.</p>
+
+      <h3><em>maturity</em></h3>
+
+      <p>the stage at which you can look back, and the wound no longer bleeds or hurts. the noise at the end marks the conclusion of the story.</p>
+
+      <p><em>trick</em>, <em>net</em>, <em>chalk</em>, and <em>treasure</em> were recorded in 2026.</p>
+
+      <p><em>tender</em>, <em>outgrow</em>, and <em>maturity</em> were written in 2025 and reworked in 2026.</p>
+
+
+      <h2>the bonus tracks</h2>
+
+      <h3><em>untitled a</em></h3>
+
+      <p>it was originally titled <em>amends</em>. the composition is dedicated to moving on with life (it actually comes after <em>maturity</em>, which already provides a good ending), to enjoying yourself and forgetting what happened before. a moment of joy, inspiration, and satisfaction. it was originally placed where <em>treasure</em> is now, but it didn't fit the chronology of the tracklist, so i decided to remove it altogether. it ended up on the bonus edition entirely by accident.</p>
+
+      <h3><em>untitled b</em></h3>
+
+      <p>(its working title was <em>urges</em>) this composition is about longing for that very first warm feeling experienced in <em>trick</em>. but it's not a painful memory. there's a little bit of a joyful aftertaste to it — the feeling that once, you were able to experience something like that so naively, without looking for any danger in it. i think it's a good ending, a way to look back on an unsuccessful experience not with negativity, but with a little compassion for yourself.</p>
+
+
+      <h2>the artwork</h2>
+
+      <p>i spent a very long time choosing the cover artwork. there was nothing suitable in my own archive. i didn't have a clear goal in mind. while listening to the compositions, i wanted to find something that could bring them all together, but nothing graphic seemed to fit. i needed a photograph — something alive, something closely connected to us, to something living. and what could be better than nature?</p>
+
+      <p>i know <a href="https://instagram.com/talk2medonttalk2me/" target="_blank" rel="noopener noreferrer">talk2medonttalk2me</a> (go check out their photoooooos) and i fell in love with their work. i reached out and asked for permission to use one of their photographs, and received a positive response. the cover depicts a swamp, seen from above. you could interpret it as a reflection of how universal this experience is. some people dive into it headfirst and experience it intensely, while others don't really go that deep. but this experience is like a swamp. it pulls you in. either you manage to get out of it earlier, taking some thought or lesson from the experience with you, or you sink into it completely and start examining every little detail. that's what i loved about this photograph.</p>
+
+      <p>by the way, the artwork for <em>trick / net</em> is interesting, too: a waterfall, nature, a little flower on the left — all of this represents the harmony experienced in <em>trick</em>. <em>net</em> is the complete opposite of that picture.</p>
+
+
+      <h2>looking back</h2>
+
+      <p>this work still feels raw to me, but i hope i'll soon be able to let go of those memories and impressions. this is a chapter that has come to an end. my upcoming debut album will be dedicated to an entirely different subject. i won't keep writing about the same thing and milking this theme.</p>
+
+    </article>
+
+
+    <footer class="article-footer">
+      <div class="article-meta">
+        <span class="article-meta-label">written by</span>
+        <span class="article-meta-value">aron miego /scacha</span>
+      </div>
+
+      <div class="article-meta">
+        <span class="article-meta-label">published</span>
+        <span class="article-meta-value">november 1, 2026</span>
+      </div>
+    </footer>
+
+
+    <a href="/blog/" class="back-link">← back to blog</a>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <p class="footer-copy">© 2026 warm palm recordings. all rights reserved.</p>
+
+    <div class="footer-links">
+      <a href="https://www.instagram.com/scacha11111/" target="_blank" rel="noopener noreferrer">instagram</a>
+      <a href="https://scacha11111.bandcamp.com/" target="_blank" rel="noopener noreferrer">bandcamp</a>
+      <a href="mailto:aron@scacha11111.com">email</a>
+    </div>
+  </footer>
+
+</body>
+</html>
