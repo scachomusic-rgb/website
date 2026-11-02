@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -180,6 +179,37 @@
 
     .gallery-image[hidden] {
       display: none;
+    }
+
+    /* music video */
+
+    .music-video {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .music-video-heading {
+      margin: 0 0 12px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .music-video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #f3f3f3;
+    }
+
+    .music-video-frame iframe {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     .release-details {
@@ -511,6 +541,23 @@
         <section class="artwork-column" aria-label="release artwork">
           <img id="main-artwork" class="main-artwork" alt="" hidden>
           <div id="gallery" class="gallery"></div>
+
+          <section class="music-video" aria-labelledby="music-video-heading">
+            <h2 class="music-video-heading" id="music-video-heading">
+              music video
+            </h2>
+
+            <div class="music-video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/OIp85mPi9hE?si=MI6t4FOor7aWtpDD"
+                title="trick / net — official music video"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </section>
         </section>
 
         <section class="release-details">
